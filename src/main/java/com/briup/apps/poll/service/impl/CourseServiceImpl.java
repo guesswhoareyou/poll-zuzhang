@@ -9,14 +9,16 @@ import com.briup.apps.poll.bean.Course;
 import com.briup.apps.poll.bean.CourseExample;
 import com.briup.apps.poll.dao.CourseMapper;
 import com.briup.apps.poll.service.ICourseService;
+
 @Service
-public class CourseServiceImpl implements ICourseService{
-@Autowired
-private CourseMapper courseMapper;
+public class CourseServiceImpl implements ICourseService {
+	@Autowired
+	private CourseMapper courseMapper;
+
 	@Override
 	public List<Course> findAll() throws Exception {
 		// TODO Auto-generated method stub
-		CourseExample example= new CourseExample();
+		CourseExample example = new CourseExample();
 		return courseMapper.selectByExample(example);
 	}
 
@@ -29,18 +31,18 @@ private CourseMapper courseMapper;
 	@Override
 	public List<Course> querry(String keywords) throws Exception {
 		// TODO Auto-generated method stub
-		CourseExample example= new CourseExample();
-		//添加一个条件name属性中包含keywords关键字
+		CourseExample example = new CourseExample();
+		// 添加一个条件name属性中包含keywords关键字
 		example.createCriteria().andNameLike(keywords);
 		return courseMapper.selectByExampleWithBLOBs(example);
 	}
- 
+
 	@Override
 	public void saveOrUpdate(Course course) throws Exception {
 		// TODO Auto-generated method stub
-		if(course.getId()!=null){
+		if (course.getId() != null) {
 			courseMapper.updateByPrimaryKey(course);
-		}else{
+		} else {
 			courseMapper.insert(course);
 		}
 	}
@@ -51,10 +53,16 @@ private CourseMapper courseMapper;
 		courseMapper.deleteByPrimaryKey(id);
 	}
 
-//	@Override
-//	public void batchDelete() {
-//		// TODO Auto-generated method stub
-//		
-//	}
+	@Override
+	public void batchDelete(List<Long> ids) throws Exception {
+		// TODO Auto-generated method stub
+
+	}
+
+	// @Override
+	// public void batchDelete() {
+	// // TODO Auto-generated method stub
+	//
+	// }
 
 }

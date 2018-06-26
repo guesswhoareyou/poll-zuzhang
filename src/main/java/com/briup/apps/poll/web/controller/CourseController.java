@@ -12,22 +12,23 @@ import com.briup.apps.poll.service.ICourseService;
 import com.briup.apps.poll.util.MsgResponse;
 
 import io.swagger.annotations.Api;
-@Api(description="课程相关接口")
+
+@Api(description = "课程相关接口")
 @RestController
 @RequestMapping("/course")
 public class CourseController {
 
 	@Autowired
 	private ICourseService courseService;
-@GetMapping("findAllCourse")
-public MsgResponse findAllCourse(){
-	try{
-		List<Course> list=courseService.findAll();
-		return MsgResponse.success("success", list);
-	}catch (Exception e){
-		e.printStackTrace();
-		return MsgResponse.error(e.getMessage());
-	}
-}
 
+	@GetMapping("findAllCourse")
+	public MsgResponse findAllCourse() {
+		try {
+			List<Course> list = courseService.findAll();
+			return MsgResponse.success("success", list);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return MsgResponse.error(e.getMessage());
+		}
+	}
 }
