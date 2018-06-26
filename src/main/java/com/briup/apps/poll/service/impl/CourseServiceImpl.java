@@ -51,6 +51,12 @@ private CourseMapper courseMapper;
 		courseMapper.deleteByPrimaryKey(id);
 	}
 
+	@Override
+	public void batchDelete(List<Long> ids) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
 //	@Override
 //	public void batchDelete() {
 //		// TODO Auto-generated method stub

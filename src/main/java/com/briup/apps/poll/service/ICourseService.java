@@ -11,4 +11,5 @@ List<Course> querry(String keywords) throws Exception;
 void saveOrUpdate(Course course) throws Exception;
 void deleteById(long id) throws Exception;
 //void batchDelete(List<Long ids>) throws Exception;
+void batchDelete(List<Long> ids)throws Exception;
 }
