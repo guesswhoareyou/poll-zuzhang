@@ -34,7 +34,7 @@ private CourseMapper courseMapper;
 		example.createCriteria().andNameLike(keywords);
 		return courseMapper.selectByExampleWithBLOBs(example);
 	}
-
+ 
 	@Override
 	public void saveOrUpdate(Course course) throws Exception {
 		// TODO Auto-generated method stub
