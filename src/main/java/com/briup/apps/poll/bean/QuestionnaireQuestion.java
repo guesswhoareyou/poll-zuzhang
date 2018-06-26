@@ -1,5 +1,9 @@
 package com.briup.apps.poll.bean;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+@ApiModel(value="问卷-问题类")
 public class QuestionnaireQuestion {
     /**
      *
@@ -8,6 +12,7 @@ public class QuestionnaireQuestion {
      *
      * @mbg.generated Mon Jun 25 16:39:51 CST 2018
      */
+	@ApiModelProperty(value="问卷-问题编号")
     private Long id;
 
     /**
@@ -17,6 +22,7 @@ public class QuestionnaireQuestion {
      *
      * @mbg.generated Mon Jun 25 16:39:51 CST 2018
      */
+	@ApiModelProperty(value="问题编号")
     private Long questionnaireId;
 
     /**
@@ -26,6 +32,7 @@ public class QuestionnaireQuestion {
      *
      * @mbg.generated Mon Jun 25 16:39:51 CST 2018
      */
+	@ApiModelProperty(value="问卷编号")
     private Long questionId;
 
     /**
