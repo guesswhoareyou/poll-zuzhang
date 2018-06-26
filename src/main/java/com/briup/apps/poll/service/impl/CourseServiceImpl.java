@@ -19,7 +19,7 @@ public class CourseServiceImpl implements ICourseService {
 	public List<Course> findAll() throws Exception {
 		// TODO Auto-generated method stub
 		CourseExample example = new CourseExample();
-		return courseMapper.selectByExample(example);
+		return courseMapper.selectByExampleWithBLOBs(example);
 	}
 
 	@Override
