@@ -29,7 +29,7 @@ public class CourseServiceImpl implements ICourseService {
 	}
 
 	@Override
-	public List<Course> querry(String keywords) throws Exception {
+	public List<Course> query(String keywords) throws Exception {
 		// TODO Auto-generated method stub
 		CourseExample example = new CourseExample();
 		// 添加一个条件name属性中包含keywords关键字
@@ -56,22 +56,13 @@ public class CourseServiceImpl implements ICourseService {
 	@Override
 	public void batchDelete(List<Long> ids) throws Exception {
 		// TODO Auto-generated method stub
-
+		for( long id:ids){
+			courseMapper.deleteByPrimaryKey(id);
 
 	}
-
-	// @Override
-	// public void batchDelete() {
-	// // TODO Auto-generated method stub
-	//
-	// }
-
-		
+	
 	}
-
-//	@Override
-//	public void batchDelete() {
-//		// TODO Auto-generated method stub
-//		
+}
+	
 
 
