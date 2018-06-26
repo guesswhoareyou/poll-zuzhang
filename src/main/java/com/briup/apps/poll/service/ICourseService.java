@@ -5,6 +5,7 @@ import java.util.List;
 import com.briup.apps.poll.bean.Course;
 
 public interface ICourseService {
+
 	
 //	查找课程
 	List<Course> findAll() throws Exception;
@@ -22,4 +23,6 @@ public interface ICourseService {
 	void deleteById(long id) throws Exception;
 //批量删除
 	void batchDelete(List<Long> ids) throws Exception;
+
+
 }

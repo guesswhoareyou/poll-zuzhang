@@ -57,6 +57,7 @@ public class CourseServiceImpl implements ICourseService {
 	public void batchDelete(List<Long> ids) throws Exception {
 		// TODO Auto-generated method stub
 
+
 	}
 
 	// @Override
@@ -65,4 +66,12 @@ public class CourseServiceImpl implements ICourseService {
 	//
 	// }
 
-}
+		
+	}
+
+//	@Override
+//	public void batchDelete() {
+//		// TODO Auto-generated method stub
+//		
+
+
