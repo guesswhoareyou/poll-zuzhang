@@ -14,7 +14,7 @@ public interface ICourseService {
 	Course findById(long id) throws Exception;
 
 //	通过关键字查找
-	List<Course> querry(String keywords) throws Exception;
+	List<Course> query(String keywords) throws Exception;
 
 //	保存和更新
 	void saveOrUpdate(Course course) throws Exception;
