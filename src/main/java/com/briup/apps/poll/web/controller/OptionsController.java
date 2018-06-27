@@ -13,6 +13,7 @@ import com.briup.apps.poll.service.IOptionsService;
 import com.briup.apps.poll.util.MsgResponse;
 
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping("/options")
@@ -21,7 +22,8 @@ public class OptionsController {
 	@Autowired
 	private IOptionsService optionsService;
 	@GetMapping("findALLOptions")
-	public MsgResponse findAllCourse(){
+	@ApiOperation(value="查询所有数据",notes="不需要输入")
+	public MsgResponse findAllOptions(){
 		try {
 			List<Options> list=optionsService.findAll();
 			return MsgResponse.success("success", list);
@@ -33,6 +35,7 @@ public class OptionsController {
 
 	}
 	@GetMapping("findById")
+	@ApiOperation(value="根据id查询数据",notes="需要输入id")
 	public  MsgResponse findById(long id){
 		try {
 			Options course=optionsService.findById(id);
@@ -43,6 +46,7 @@ public class OptionsController {
 		}
 	}
 	@GetMapping("findByKeyWords")
+	@ApiOperation(value="关键字查询")
 	public MsgResponse findByKeyWords(String keyWords){
 		try {
 			List<Options> list=optionsService.query(keyWords);
@@ -54,6 +58,7 @@ public class OptionsController {
 		}
 	}
 	@GetMapping("saveOrUpdate")
+	@ApiOperation(value="插入或更新数据",notes="插入不需要输入id，更新需要输入id")
 	public MsgResponse saveOrUpdate(Options options){
 		try {
 			optionsService.saveOrUpdate(options);
@@ -65,6 +70,7 @@ public class OptionsController {
 		}
 	}
 	@GetMapping("deleteById")
+	@ApiOperation(value="根据id删除数据",notes="需要输入id")
 	public MsgResponse deleteById(long id){
 		try {
 			optionsService.deleteById(id);
@@ -76,6 +82,7 @@ public class OptionsController {
 		}
 	}
 	@GetMapping("batchDelete")
+	@ApiOperation(value="批量删除数据",notes="输入多个id")
 	public MsgResponse batchDelete(Long[] ids){
 		try {
 			optionsService.batchDelete(ids);
