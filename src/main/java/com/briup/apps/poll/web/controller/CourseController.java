@@ -3,6 +3,7 @@ package com.briup.apps.poll.web.controller;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -46,7 +47,7 @@ public class CourseController {
 	@GetMapping("findByKeywords")
 	public MsgResponse quary(@RequestParam String Keywords) {
 		try {
-			List<Course> list = courseService.querry(Keywords);
+			List<Course> list = courseService.query(Keywords);
 			return MsgResponse.success("success", list);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -89,6 +90,29 @@ public class CourseController {
 			return MsgResponse.error(e.getMessage());
 		}
 	}
+	
+	@GetMapping("findBykeywords")
+	public MsgResponse query( @RequestParam String keywords){
+		try{
+			List<Course> list = courseService.query(keywords);
+			return MsgResponse.success("success", list);
+		}catch(Exception e){
+			e.printStackTrace();
+			return MsgResponse.error(e.getMessage());
+		}
+	}
+	
+	@GetMapping("saveOrUpdate")
+	public  MsgResponse saveOrUpdate(Course course ){
+		
+		try{
+			courseService.saveOrUpdate(course);
+			return MsgResponse.success("success", course);
+		}catch(Exception e){
+			e.printStackTrace();
+			return MsgResponse.error(e.getMessage());
+	}
+}
 	
 }
 
