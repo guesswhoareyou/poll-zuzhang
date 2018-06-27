@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.briup.apps.poll.bean.Grade;
+import com.briup.apps.poll.bean.extend.GradeVM;
 import com.briup.apps.poll.service.IGradeService;
 import com.briup.apps.poll.util.MsgResponse;
 
@@ -25,6 +26,17 @@ public class GradeController {
 	public MsgResponse findAllGrade(){
 		try{
 			List<Grade> list=gradeService.findAll();
+			return MsgResponse.success("success", list);
+		}catch(Exception e){
+			e.printStackTrace();
+			return MsgResponse.error(e.getMessage());
+		}	
+	}
+	
+	@GetMapping("findAllGradeVM")
+	public MsgResponse findAllGradeVM(){
+		try{
+			List<GradeVM> list=gradeService.findAllGradeVM();
 			return MsgResponse.success("success", list);
 		}catch(Exception e){
 			e.printStackTrace();
