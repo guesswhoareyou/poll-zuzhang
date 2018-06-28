@@ -53,15 +53,16 @@ public class CourseServiceImpl implements ICourseService {
 		courseMapper.deleteByPrimaryKey(id);
 	}
 
+	
 	@Override
 	public void batchDelete(List<Long> ids) throws Exception {
 		// TODO Auto-generated method stub
 		for( long id:ids){
 			courseMapper.deleteByPrimaryKey(id);
 
-	}
 	
 	}
+}
 }
 	
 
