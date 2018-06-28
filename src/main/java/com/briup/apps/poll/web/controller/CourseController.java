@@ -31,4 +31,4 @@ public class CourseController {
 			return MsgResponse.error(e.getMessage());
 		}
 	}
-}
+	}
