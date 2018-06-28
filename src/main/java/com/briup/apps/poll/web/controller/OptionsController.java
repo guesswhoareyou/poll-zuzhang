@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.briup.apps.poll.bean.Options;
+import com.briup.apps.poll.bean.extend.OptionsVM;
 import com.briup.apps.poll.service.IOptionsService;
 import com.briup.apps.poll.util.MsgResponse;
 
@@ -26,6 +27,19 @@ public class OptionsController {
 	public MsgResponse findAllOptions(){
 		try {
 			List<Options> list=optionsService.findAll();
+			return MsgResponse.success("success", list);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return MsgResponse.error(e.getMessage());
+		}
+
+	}
+	@GetMapping("findALLVM")
+	@ApiOperation(value="查询所有数据",notes="不需要输入")
+	public MsgResponse findAllVM(){
+		try {
+			List<OptionsVM> list=optionsService.findAllOptionsVM();
 			return MsgResponse.success("success", list);
 		} catch (Exception e) {
 			// TODO: handle exception
