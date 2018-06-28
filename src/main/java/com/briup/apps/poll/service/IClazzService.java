@@ -15,4 +15,6 @@ public interface IClazzService {
 	 void deleteById(long id) throws Exception;
 	 //批量
 	 void batchDelete(List<Long> ids) throws Exception;
+	 
+	 
 }

@@ -58,6 +58,19 @@ public class QuestionnaireQuestionController {
 			return MsgResponse.error(e.getMessage());
 		}
 	}
+	
+	@ApiOperation(value="根据id查询所有问卷和问题数据",notes="需要输入id")
+	@GetMapping("findQQById")
+	public MsgResponse findQQById(@RequestParam long id){
+		try {
+			QuestionnaireQuestionVM qq = questionnaireQuestionService.selectById(id);
+			return MsgResponse.success("success", qq);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return MsgResponse.error(e.getMessage());
+		}
+	}
+		
 	@ApiOperation(value="根据id删除数据",notes="需要输入id")
 	@GetMapping("deleteById")
 	public MsgResponse deleteById(long id){

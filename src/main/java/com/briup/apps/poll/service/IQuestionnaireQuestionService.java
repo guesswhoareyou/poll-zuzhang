@@ -42,4 +42,6 @@ public interface IQuestionnaireQuestionService {
 	 * @return
 	 */
 	List<QuestionnaireQuestionVM> findAllQuestionnaireQuestionVM() throws Exception;
+	
+	QuestionnaireQuestionVM selectById(long id) throws Exception;
 }

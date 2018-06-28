@@ -68,5 +68,6 @@ public class ClazzServiceImpl implements IClazzService{
 		// TODO Auto-generated method stub
 		return clazzVMMapper.selectAll();
 	}
+
 	}
 
