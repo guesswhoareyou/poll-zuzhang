@@ -7,9 +7,9 @@ import com.briup.apps.poll.bean.extend.GradeVM;
 
 public interface IGradeService {
 	
-//	List<Grade> query(String Keywords) throws Exception;
-//	List<Grade> findAll() throws Exception;
-//	Grade findById(long id) throws Exception;
+	List<Grade> query(String Keywords) throws Exception;
+	List<Grade> findAll() throws Exception;
+	Grade findById(long id) throws Exception;
 	/**
 	 * 查询所有年级信息，并包含所属学校信息
 	 * @return

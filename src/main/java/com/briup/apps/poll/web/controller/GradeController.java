@@ -24,43 +24,43 @@ public class GradeController {
 	@Autowired
 	private IGradeService gradeService;
 
-//	@ApiOperation(value = "查询所有年级相关信息")
-//	@GetMapping("findAllGrade")
-//	public MsgResponse findAllGrade() {
-//		try {
-//			List<Grade> list = gradeService.findAll();
-//			return MsgResponse.success("success", list);
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//			return MsgResponse.error(e.getMessage());
-//		}
-//	}
+	@ApiOperation(value = "查询所有年级相关信息")
+	@GetMapping("findAllGrade")
+	public MsgResponse findAllGrade() {
+		try {
+			List<Grade> list = gradeService.findAll();
+			return MsgResponse.success("success", list);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return MsgResponse.error(e.getMessage());
+		}
+	}
 	
 
-//	@ApiOperation(value="根据id查询年级信息",notes=("需要输入id"))
-//	@GetMapping("findGradeById")
-//	public MsgResponse findGradeById(@RequestParam long id) {
-//		// @Requestparam需要初始化默认值
-//		try {
-//			Grade grade = gradeService.findById(id);
-//			return MsgResponse.success("success", grade);
-//			// return course;
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//			return MsgResponse.error(e.getMessage());
-//		}
-//	}
-//	@ApiOperation(value="通过name属性关键字查询信息",notes="需要输入年级名称关键字")
-//	@GetMapping("queryGrade")
-//	public MsgResponse queryGrade(@RequestParam String Keywords) {
-//		try {
-//			List<Grade> list = gradeService.query(Keywords);
-//			return MsgResponse.success("success", list);
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//			return MsgResponse.error(e.getMessage());
-//		}
-//	}
+	@ApiOperation(value="根据id查询年级信息",notes=("需要输入id"))
+	@GetMapping("findGradeById")
+	public MsgResponse findGradeById(@RequestParam long id) {
+		// @Requestparam需要初始化默认值
+		try {
+			Grade grade = gradeService.findById(id);
+			return MsgResponse.success("success", grade);
+			// return course;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return MsgResponse.error(e.getMessage());
+		}
+	}
+	@ApiOperation(value="通过name属性关键字查询信息",notes="需要输入年级名称关键字")
+	@GetMapping("queryGrade")
+	public MsgResponse queryGrade(@RequestParam String Keywords) {
+		try {
+			List<Grade> list = gradeService.query(Keywords);
+			return MsgResponse.success("success", list);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return MsgResponse.error(e.getMessage());
+		}
+	}
 	@ApiOperation(value="查询所有年级信息",notes=("年级信息包含所属学校信息"))
 	@GetMapping("findAllGradeVM")
 	public MsgResponse findAllGradeVM() {
