@@ -61,7 +61,7 @@ public class GradeController {
 			return MsgResponse.error(e.getMessage());
 		}
 	}
-	@ApiOperation(value="查询所有年级信息",notes=("年级信息包含所属学校信息"))
+	@ApiOperation(value="级联查询所有年级信息",notes=("年级信息包含所属学校信息"))
 	@GetMapping("findAllGradeVM")
 	public MsgResponse findAllGradeVM() {
 		try {
@@ -74,7 +74,7 @@ public class GradeController {
 		
 	}
 	
-	@ApiOperation(value="根据id查询年级信息",notes=("需要输入id,查询的年级信息包含所属学校信息"))
+	@ApiOperation(value="根据id级联查询年级所有信息",notes=("需要输入id,查询的年级信息包含所属学校信息"))
 	@GetMapping("findGradeVMById")
 	public MsgResponse findGradeVMById(@RequestParam long id) {
 		// @Requestparam需要初始化默认值
@@ -88,7 +88,7 @@ public class GradeController {
 		}
 	}
 	
-	@ApiOperation(value="通过name属性关键字查询信息",notes="需要输入年级名称关键字")
+	@ApiOperation(value="通过name属性关键字级联查询所有信息",notes="需要输入年级名称关键字")
 	@GetMapping("selectByKeyWords")
 	public MsgResponse selectByKeyWords(@RequestParam String keyWords) {
 		try {
