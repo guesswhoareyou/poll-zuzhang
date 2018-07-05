@@ -15,13 +15,30 @@ import com.briup.apps.poll.service.IClazzService;
 import com.briup.apps.poll.util.MsgResponse;
 
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 
 @Api(description="班级相关接口")
 @RestController
 @RequestMapping("/clazz")
+@ApiOperation(value="保存或修改班级信息",
+notes="如果参数中包含ID表示修改操作，否则表示保存操作")
 public class ClazzController {
+
 	@Autowired
 	private IClazzService clazzService;
+	
+	@GetMapping("saveOrUpdateClazz")
+	public MsgResponse saveOrUpdateClazz(Clazz clazz){
+		try{
+			clazzService.saveOrUpdate(clazz);
+			return MsgResponse.success("保存或更新成功", null);
+		}catch(Exception e){
+			e.printStackTrace();
+			return MsgResponse.error(e.getMessage());
+		}
+			
+	} 
+	
 	@GetMapping("findAllClazzVM")
 	public MsgResponse findAllCourseVM(){
 		try{

@@ -8,7 +8,6 @@ public class QuestionnaireVM {
 	private Long id;
 	private String name;
 	private String description;
-	private String status;
 	private List<QuestionVM> questionVM;
 	
 	public List<QuestionVM> getQuestionVM() {
@@ -35,11 +34,4 @@ public class QuestionnaireVM {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String getStatus() {
-		return status;
-	}
-	public void setStatus(String status) {
-		this.status = status;
-	}
-
 }

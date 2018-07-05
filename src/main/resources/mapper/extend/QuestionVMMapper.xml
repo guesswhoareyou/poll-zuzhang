@@ -8,10 +8,11 @@
 	<select id="selectByQuestionnaireId"
 	parameterType="long"
 	resultMap="QuestionVMResultMap">
-	select * from poll_question where id(
+	select * from poll_question where id in(
 	select question_id
 	from poll_qq
-	where questionnaire_id=#{id})
+	where questionnaire_id=#{id}
+	)
 	
 	</select>
 	<!-- 定义结果集 -->
@@ -20,12 +21,17 @@
 		<id column="id" property="id" />
 		<result column="name" property="name" />
 		<result column="questionType" property="questionType" />
-		<collection column="id" property="options" javaType="ArrayList"
-			ofType="com.briup.apps.poll.bean.Options" select="selectOptionsByQuestionId">
+		<collection 
+		column="id" 
+		property="options"
+		javaType="ArrayList"
+		ofType="com.briup.apps.poll.bean.Options" 
+		select="selectOptionsByQuestionId">
 		</collection>
 	</resultMap>
-	<select id="selectOptionsByQuestionId" parameterType="long"
-		resultType="com.briup.apps.poll.bean.Options">
-		select * from poll_options where question_id=#{id}
+	<select id="selectOptionsByQuestionId" 
+	parameterType="long"
+	resultType="com.briup.apps.poll.bean.Options">
+	select * from poll_options where question_id=#{id}
 	</select>
 </mapper>

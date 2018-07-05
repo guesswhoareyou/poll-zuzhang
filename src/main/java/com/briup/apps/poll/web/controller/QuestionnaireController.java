@@ -23,6 +23,19 @@ public class QuestionnaireController {
 	@Autowired
 	private IQuestionnaireService questionnaireService;
 	
+	@ApiOperation (value="保存或修改问卷信息",
+			notes="如果问卷参数中包含id执行更新操作，否则执行修改操作")
+	@PostMapping("saveOrUpdateQuestionnaire")
+	public MsgResponse saveOrUpdateQuestionnaire(Questionnaire questionnaire,long[] questionIds){
+		try{
+			questionnaireService.saveOrUpdate(questionnaire, questionIds);
+			return MsgResponse.success("保存或修改成功", null);
+		}catch (Exception e){
+			e.printStackTrace();
+			return MsgResponse.error(e.getMessage());
+		}	
+	}
+	
 	
 	@ApiOperation(value="通过id查找问卷", notes="问卷下具有问题信息")
 	@GetMapping("findQuestionnaireVMById")
@@ -35,6 +48,8 @@ public class QuestionnaireController {
 			return MsgResponse.error(e.getMessage());
 		}
 	} 
+	
+	
 @ApiOperation(value="查询所有问卷", notes="单表")
 	@GetMapping("findAllQuestionnaire")
 	public MsgResponse findAllQuestionnaire(){
@@ -47,29 +62,20 @@ public class QuestionnaireController {
 		}
 	}
 
-@ApiOperation(value="通过关键字查找问卷", notes="单表")
-	@GetMapping("findBykeywords")
-	public MsgResponse query( @RequestParam String keywords){
-		try{
-			List<Questionnaire> list = questionnaireService.Query(keywords);
-			return MsgResponse.success("success", list);
-		}catch(Exception e){
+
+    @ApiOperation(value="根据ID删除问卷信息", notes="删除问卷的同时会把问卷和问题的关系解除掉，而问题保留")
+	@GetMapping("deleteQuestionnaireById")
+	public  MsgResponse deleteQuestionnaireById(long id){
+    	try{
+    		questionnaireService.deleteById(id);
+    		return MsgResponse.success("删除成功", null);
+    	}catch(Exception e){
 			e.printStackTrace();
 			return MsgResponse.error(e.getMessage());
-		}
-	}
-@ApiOperation(value="保存或更新问卷", notes="单表")
-	@GetMapping("saveOrUpdate")
-	public  MsgResponse saveOrUpdate(Questionnaire questionnaire ){
-		
-		try{
-			questionnaireService.saveOrUpdate(questionnaire);
-			return MsgResponse.success("success", questionnaire);
-		}catch(Exception e){
-			e.printStackTrace();
-			return MsgResponse.error(e.getMessage());
-	}
-	}
+    	}
+    }
+    
+    
 @ApiOperation(value="通过id批量删除问卷", notes="单表")
 		@PostMapping("batchDelete")
 		public MsgResponse batchDelete(@RequestParam List<Long> ids){
