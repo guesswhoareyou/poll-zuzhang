@@ -7,4 +7,5 @@ import com.briup.apps.poll.bean.extend.ClazzVM;
 public interface ClazzVMMapper {
 	
 	List<ClazzVM> selectAll();
+	
 }

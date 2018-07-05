@@ -14,4 +14,8 @@
 			select="com.briup.apps.poll.dao.QuestionMapper.selectByPrimaryKey">
 		</association>
 	</resultMap>
+	
+	<select id="selectById" resultMap="QuestionnaireQuestionVMResultMap">
+		select * from poll_qq where id = #{id}
+	</select>
 </mapper>

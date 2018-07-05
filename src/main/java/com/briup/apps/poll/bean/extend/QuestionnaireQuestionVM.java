@@ -4,13 +4,13 @@ import com.briup.apps.poll.bean.Question;
 import com.briup.apps.poll.bean.Questionnaire;
 
 public class QuestionnaireQuestionVM {
-	private long id;
+	private Long id;
 	private Questionnaire questionnaire;
 	private Question question;
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public Question getQuestion() {

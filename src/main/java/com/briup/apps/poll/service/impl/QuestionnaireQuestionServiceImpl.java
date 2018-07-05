@@ -1,4 +1,4 @@
-package com.briup.apps.poll.service.impl;
+ package com.briup.apps.poll.service.impl;
 
 import java.util.List;
 
@@ -61,11 +61,21 @@ public class QuestionnaireQuestionServiceImpl implements IQuestionnaireQuestionS
 			questionnaireQuestionMapper.deleteByPrimaryKey(id);
 		}
 	}
-	
+	/**
+	 * 查询所有问卷和问题
+	 */
 	@Override
 	public List<QuestionnaireQuestionVM> findAllQuestionnaireQuestionVM() throws Exception {
 
 		return questionnaireQuestionVMMappre.selectAll();
+	}
+	/**
+	 * 根据id查询问卷和问题
+	 */
+	@Override
+	public QuestionnaireQuestionVM selectById(long id) throws Exception {
+		
+		return questionnaireQuestionVMMappre.selectById(id);
 	}
 
 }
