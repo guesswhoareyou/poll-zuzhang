@@ -49,7 +49,7 @@ public class QuestionServiceImpl implements IQuestionService {
 		question.setQuestiontype(questionvm.getQuestionType());
 		//options 问题选项
 		if(question.getId()==null) {
-		//1.判断修改还是保存
+		//1.判断是否是简答
 		if(question.getQuestiontype().equals("简答题")) {
 			questionMapper.insert(question);
 		}else {

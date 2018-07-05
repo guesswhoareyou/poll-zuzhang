@@ -94,7 +94,7 @@ public class QuestionController {
 	}
 	
 	//批量删除 post
-	@ApiOperation(value = "批量删除")
+	@ApiOperation(value = "批量删除.")
 	@PostMapping("batchQuestionDelete")
 	public MsgResponse batchQuestionDelete(long[] ids){
 		try {
